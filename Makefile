@@ -6,6 +6,10 @@ lint:
 tests:
 	pytest --cov=steps --cov-report=html --verbose
 
+.PHONY: type
+type:
+	mypy -p steps
+
 .PHONY: docs
 docs:
 	sphinx-apidoc steps -o docs/source/
@@ -24,4 +28,4 @@ precommit:
 	pre-commit run isort --all-files
 
 .PHONY: checks
-checks: lint tests docs precommit
+checks: lint tests type docs manifest precommit
