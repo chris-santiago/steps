@@ -1,4 +1,6 @@
 """Forward step selection module."""
+from typing import List
+
 import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.feature_selection import SelectorMixin
@@ -30,7 +32,7 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
     @staticmethod
     def _get_null_fit(X: np.ndarray, y: np.ndarray) -> np.ndarray:
         const = np.ones(shape=(len(X), 1))
-        return LinearRegression().fit(const, y).predict(const)
+        return LinearRegression().fit(const, y).predict(const)  # type: ignore
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> "ForwardSelector":
         """
@@ -54,7 +56,7 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
         best_mse = mean_squared_error(y, self._get_null_fit(X, y))
         best_metric = score_func[self.metric](mse=best_mse, n=len(X), p=0)
         test_metric = 0
-        keep_idx = []
+        keep_idx: List = []
         params = {i: X[:, i, None] for i in range(X.shape[1])}
         while test_metric <= best_metric:
             if len(keep_idx) == X.shape[1]:  # no more features to test
@@ -78,7 +80,7 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
             test_metric = min(scores.values())
             if test_metric < best_metric:
                 best_metric = test_metric
-                keep_idx.append(min(scores, key=scores.get))
+                keep_idx.append(min(scores, key=scores.get))  # type: ignore
             else:
                 break
         self.best_support_ = np.array([True if x in keep_idx else False for x in range(X.shape[1])])  # pylint: disable=simplifiable-if-expression

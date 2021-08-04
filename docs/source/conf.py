@@ -41,22 +41,6 @@ extensions = [
     'myst_parser',
 ]
 
-# Napoleon settings
-napoleon_google_docstring = True
-napoleon_numpy_docstring = True
-napoleon_include_init_with_doc = True
-napoleon_include_private_with_doc = False
-napoleon_include_special_with_doc = True
-napoleon_use_admonition_for_examples = True
-napoleon_use_admonition_for_notes = True
-napoleon_use_admonition_for_references = True
-napoleon_use_ivar = False
-napoleon_use_param = True
-napoleon_use_rtype = True
-napoleon_preprocess_types = False
-napoleon_type_aliases = None
-napoleon_attr_annotations = True
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -93,3 +77,29 @@ man_pages = [
     (master_doc, 'steps', 'step-select Documentation',
      [author], 1)
 ]
+
+
+# -- Extension configuration  ---------------------------------------------
+
+# Napoleon settings
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = True
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = False
+napoleon_use_admonition_for_examples = True
+napoleon_use_admonition_for_notes = True
+napoleon_use_admonition_for_references = True
+napoleon_use_ivar = False
+napoleon_use_param = True
+napoleon_use_rtype = True
+napoleon_use_keyword = True
+napoleon_custom_sections = None
+
+# Autodoc
+autodoc_default_options = {
+    'autodoc_default_flags': ['members', 'undoc-members', 'inherited-members', 'show-inheritance']
+}
+autoclass_content = 'both'
+autodoc_member_order = 'bysource'
+autodoc_typehints = 'signature'
