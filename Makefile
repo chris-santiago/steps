@@ -17,10 +17,11 @@ manifest:
 
 .PHONY: precommit
 precommit:
-	pre-commit run trailing-whitespace --all-files --verbose
-	pre-commit run end-of-file-fixer --all-files --verbose
-	pre-commit run check-yaml --all-files --verbose
-	pre-commit run check-added-large-files --all-files --verbose
+	pre-commit run trailing-whitespace --all-files
+	pre-commit run end-of-file-fixer --all-files
+	pre-commit run check-yaml --all-files
+	pre-commit run check-added-large-files --all-files
+	pre-commit run isort --all-files
 
 .PHONY: checks
 checks: lint tests docs precommit
