@@ -11,7 +11,7 @@ install:
 
 # command to run tests
 script:
-  - pytest --cov-report=xml
+  - pytest --cov=steps --cov-report=xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
