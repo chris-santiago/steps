@@ -9,7 +9,7 @@ tests:
 .PHONY: docs
 docs:
 	sphinx-apidoc steps -o docs/source/
-	sphinx-build -b html docs/source docs/build/html
+	sphinx-build -b html docs/source/ docs/build/html
 
 .PHONY: manifest
 manifest:
