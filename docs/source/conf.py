@@ -98,7 +98,11 @@ napoleon_custom_sections = None
 
 # Autodoc
 autodoc_default_options = {
-    'autodoc_default_flags': ['members', 'undoc-members', 'inherited-members', 'show-inheritance']
+    'members': True,
+    'member-order': 'bysource',
+    'undoc-members': True,
+    'inherited-members': True,
+    'show-inheritance': True,
 }
 autoclass_content = 'both'
 autodoc_member_order = 'bysource'
