@@ -199,6 +199,15 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">steps.forward.</span></span><span class="sig-name descname"><span class="pre">ForwardSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'aic'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/forward.html#ForwardSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.forward.ForwardSelector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.base.BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.feature_selection._base.SelectorMixin</span></code></p>
 <p>Class for forward stepwise feature selection.</p>
+<p>Constructor method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> (<em>bool</em>) – Whether to normalize data; default = False, assuming object used in pipeline.</p></li>
+<li><p><strong>metric</strong> (<em>str</em>) – Optimization metric to use; one of [‘aic’, ‘bic’].</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="steps.forward.ForwardSelector.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'aic'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/forward.html#ForwardSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.forward.ForwardSelector.__init__" title="Permalink to this definition">¶</a></dt>
@@ -237,26 +246,6 @@
 <span id="steps-metrics-module"></span><h2>steps.metrics module<a class="headerlink" href="#module-steps.metrics" title="Permalink to this headline">¶</a></h2>
 <p>Custom metrics module.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="steps.metrics.get_aic">
-<span class="sig-prename descclassname"><span class="pre">steps.metrics.</span></span><span class="sig-name descname"><span class="pre">get_aic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/metrics.html#get_aic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.metrics.get_aic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcuate AIC score.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mse</strong> (<em>float</em>) – Mean-squared error.</p></li>
-<li><p><strong>n</strong> (<em>int</em>) – Number of observations.</p></li>
-<li><p><strong>p</strong> (<em>int</em>) – Number of parameters</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>AIC value.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
 <dt class="sig sig-object py" id="steps.metrics.get_bic">
 <span class="sig-prename descclassname"><span class="pre">steps.metrics.</span></span><span class="sig-name descname"><span class="pre">get_bic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/metrics.html#get_bic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.metrics.get_bic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calcuate BIC score.</p>
@@ -276,6 +265,26 @@
 </dd>
 </dl>
 </dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="steps.metrics.get_aic">
+<span class="sig-prename descclassname"><span class="pre">steps.metrics.</span></span><span class="sig-name descname"><span class="pre">get_aic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/metrics.html#get_aic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.metrics.get_aic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcuate AIC score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mse</strong> (<em>float</em>) – Mean-squared error.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of observations.</p></li>
+<li><p><strong>p</strong> (<em>int</em>) – Number of parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AIC value.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 <section id="module-steps.subset">
 <span id="steps-subset-module"></span><h2>steps.subset module<a class="headerlink" href="#module-steps.subset" title="Permalink to this headline">¶</a></h2>
@@ -285,6 +294,16 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">steps.subset.</span></span><span class="sig-name descname"><span class="pre">SubsetSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'aic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/subset.html#SubsetSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.subset.SubsetSelector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.base.BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.feature_selection._base.SelectorMixin</span></code></p>
 <p>Class for best subsets feature selection.</p>
+<p>Constructor method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>normalize</strong> (<em>bool</em>) – Whether to normalize data; default = False, assuming object used in pipeline.</p></li>
+<li><p><strong>metric</strong> (<em>str</em>) – Optimization metric to use; one of [‘aic’, ‘bic’].</p></li>
+<li><p><strong>max_p</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – Maximum number of parameters to include; default None.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="steps.subset.SubsetSelector.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'aic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_p</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/subset.html#SubsetSelector.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.subset.SubsetSelector.__init__" title="Permalink to this definition">¶</a></dt>
