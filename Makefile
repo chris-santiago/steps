@@ -4,7 +4,7 @@ lint:
 
 .PHONY: tests
 tests:
-	pytest --cov=steps --cov-report=html --verbose
+	pytest
 
 .PHONY: type
 type:
