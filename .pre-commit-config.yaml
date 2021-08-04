@@ -15,11 +15,12 @@ repos:
     hooks:
     -   id: isort
 ################## Pylint ##################
-#-   repo: https://github.com/PyCQA/pylint
-#    rev: v2.9.5
-#    hooks:
-#    -   id: pylint
-#        entry: pylint steps
+-   repo: https://github.com/PyCQA/pylint
+    rev: v2.9.5
+    hooks:
+    -   id: pylint
+        entry: pylint
+        exclude: tests/|docs/
 ################## Flake8 ##################
 #-   repo: https://github.com/PyCQA/flake8
 #    rev: 3.8.3
