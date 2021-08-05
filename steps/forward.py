@@ -83,7 +83,8 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
                 keep_idx.append(min(scores, key=scores.get))  # type: ignore
             else:
                 break
-        self.best_support_ = np.array([True if x in keep_idx else False for x in range(X.shape[1])])  # pylint: disable=simplifiable-if-expression
+        # pylint: disable=simplifiable-if-expression
+        self.best_support_ = np.array([True if x in keep_idx else False for x in range(X.shape[1])])
         return self
 
     def _get_support_mask(self) -> np.ndarray:
