@@ -7,6 +7,7 @@ from sklearn.feature_selection import SelectorMixin
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
+from sklearn.utils import check_X_y
 from sklearn.utils.validation import check_is_fitted
 
 from steps.metrics import get_aic, get_bic
@@ -49,6 +50,7 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
         -------
         self: object
         """
+        X, y = check_X_y(X, y)
         if self.normalize:
             X = self.scaler.fit_transform(X)
         score_func = {'aic': get_aic, 'bic': get_bic}
