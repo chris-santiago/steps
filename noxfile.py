@@ -6,7 +6,7 @@ PROJECT = 'steps'
 @nox.session(reuse_venv=True)
 def tests(session):
     """Run unit tests in current Python environment."""
-    session.install('pytest', 'pytest-cov')
+    session.install('pytest', 'pytest-cov', 'pandas')
     session.install('.')
     session.run('pytest')
 

@@ -1,6 +1,7 @@
 from unittest.mock import Mock
 
 import numpy as np
+import pandas as pd
 import pytest
 from sklearn.utils.validation import NotFittedError
 
@@ -48,3 +49,11 @@ class TestSubsetSelector:
         monkeypatch.setattr(selector, 'scaler', mock_scaler)
         final = selector.fit_transform(X, y)
         mock_scaler.fit_transform.assert_not_called()
+
+    def test_pandas(self, dummy_data):
+        X, y, coef = dummy_data
+        X = pd.DataFrame(X)
+        y = pd.Series(y)
+        selector = SubsetSelector()
+        final = selector.fit_transform(X, y)
+        np.testing.assert_equal(coef * selector.best_support_, coef)
