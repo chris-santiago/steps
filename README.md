@@ -47,19 +47,6 @@ data.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -201,19 +188,6 @@ X.loc[:, selector.best_support_]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -356,19 +330,6 @@ X.loc[:, selector.get_support()]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -488,9 +449,6 @@ mod = OLS(endog=y, exog=add_constant(X)).fit()
 mod.summary()
 ```
 
-    /opt/homebrew/Caskroom/miniforge/base/envs/steps/lib/python3.8/site-packages/statsmodels/tsa/tsatools.py:142: FutureWarning: In a future version of pandas all arguments of concat except for the argument 'objs' will be keyword-only
-      x = pd.concat(x[::order], 1)
-
 
 
 
@@ -582,9 +540,6 @@ mod.summary()
 mod = OLS(endog=y, exog=add_constant(X.loc[:, selector.best_support_])).fit()
 mod.summary()
 ```
-
-    /opt/homebrew/Caskroom/miniforge/base/envs/steps/lib/python3.8/site-packages/statsmodels/tsa/tsatools.py:142: FutureWarning: In a future version of pandas all arguments of concat except for the argument 'objs' will be keyword-only
-      x = pd.concat(x[::order], 1)
 
 
 
