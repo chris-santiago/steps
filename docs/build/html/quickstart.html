@@ -5,37 +5,35 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="steps" href="modules.html" /><link rel="prev" title="step-select Documentation" href="index.html" />
 
-    <meta name="generator" content="sphinx-4.1.2, furo 2021.07.31.beta41"/>
+    <meta name="generator" content="sphinx-4.1.2, furo 2021.07.28.beta40"/>
         <title>Quickstart - step-select</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=daa650a7760fac3eee23aa959745d2c866b74cb3" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=93475b62d1c3bc01323a0eefdc14a62d77b12690" />
-
-
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css" />
+    
 
 
 <style>
   body {
     --color-code-background: #f8f8f8;
   --color-code-foreground: black;
-
+  
   }
   body[data-theme="dark"] {
     --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
-
+  
   }
   @media (prefers-color-scheme: dark) {
     body:not([data-theme="light"]) {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
-
+  
     }
   }
-</style>
-    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
+</style><link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css"></head>
   <body>
-
+    
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -103,12 +101,8 @@
 
 <input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
 <input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 
 
@@ -116,7 +110,6 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
         <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
       </label>
     </div>
@@ -126,28 +119,26 @@
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
         <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
           <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
     </div>
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-
+      
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
-
-
+  
+  
   <span class="sidebar-brand-text">step-select</span>
-
-</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  
+</a><form class="sidebar-search-container" method="get" action="search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -156,7 +147,7 @@
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#step-select">step-select</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">steps</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">steps</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="steps.html">steps package</a></li>
 </ul>
 </li>
@@ -166,23 +157,21 @@
 </div>
 </div>
       </div>
-
+      
     </div>
   </aside>
-  <div class="main">
+  <main class="main">
     <div class="content">
       <article role="main">
         <div class="content-icon-container">
           <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
@@ -191,6 +180,9 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="step-select">
 <h1>step-select<a class="headerlink" href="#step-select" title="Permalink to this headline">¶</a></h1>
+<p><img alt="build" src="https://travis-ci.com/chris-santiago/steps.svg?branch=master"/>
+<a class="reference external" href="https://codecov.io/gh/chris-santiago/steps"><img alt="codecov" src="https://codecov.io/gh/chris-santiago/steps/branch/master/graph/badge.svg?token=RIB2YFGWFX"/></a></p>
+<p>A SciKit-Learn style feature selector using best subsets and stepwise regression.</p>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <p>Create a virtual environment with Python 3.8 and install from git:</p>
@@ -200,12 +192,595 @@
 </section>
 <section id="use">
 <h2>Use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
+<section id="preliminaries">
+<h3>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h3>
+<p><em>Note: this example requires two additional packages</em>: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>.</p>
+<p>In this example we’ll show how the <code class="docutils literal notranslate"><span class="pre">ForwardSelector</span></code> and <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> classes can be used on their own or in conjuction with a Scikit-Learn <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">statsmodels.datasets</span>
+<span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">OLS</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools</span> <span class="kn">import</span> <span class="n">add_constant</span>
+
+<span class="kn">from</span> <span class="nn">steps.forward</span> <span class="kn">import</span> <span class="n">ForwardSelector</span>
+<span class="kn">from</span> <span class="nn">steps.subset</span> <span class="kn">import</span> <span class="n">SubsetSelector</span>
+</pre></div>
+</div>
+<p>We’ll download the <code class="docutils literal notranslate"><span class="pre">auto</span></code> dataset via <code class="docutils literal notranslate"><span class="pre">Statsmodels</span></code>; we’ll use <code class="docutils literal notranslate"><span class="pre">mpg</span></code> as the endogenous variable and the remaining variables as exongenous.  We won’t use <code class="docutils literal notranslate"><span class="pre">make</span></code>, as that will create several dummies and increase the number of paramters to 12+, which is too many for the <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> class; we’ll also drop <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">statsmodels</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">webuse</span><span class="p">(</span><span class="s1">'auto'</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">'foreign'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">x</span> <span class="o">==</span> <span class="s1">'Foreign'</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">'foreign'</span><span class="p">]])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<div class="table-wrapper"><table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>make</th>
+<th>price</th>
+<th>mpg</th>
+<th>rep78</th>
+<th>headroom</th>
+<th>trunk</th>
+<th>weight</th>
+<th>length</th>
+<th>turn</th>
+<th>displacement</th>
+<th>gear_ratio</th>
+<th>foreign</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>AMC Concord</td>
+<td>4099</td>
+<td>22</td>
+<td>3.0</td>
+<td>2.5</td>
+<td>11</td>
+<td>2930</td>
+<td>186</td>
+<td>40</td>
+<td>121</td>
+<td>3.58</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>AMC Pacer</td>
+<td>4749</td>
+<td>17</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>11</td>
+<td>3350</td>
+<td>173</td>
+<td>40</td>
+<td>258</td>
+<td>2.53</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>AMC Spirit</td>
+<td>3799</td>
+<td>22</td>
+<td>0.0</td>
+<td>3.0</td>
+<td>12</td>
+<td>2640</td>
+<td>168</td>
+<td>35</td>
+<td>121</td>
+<td>3.08</td>
+<td>0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>Buick Century</td>
+<td>4816</td>
+<td>20</td>
+<td>3.0</td>
+<td>4.5</td>
+<td>16</td>
+<td>3250</td>
+<td>196</td>
+<td>40</td>
+<td>196</td>
+<td>2.93</td>
+<td>0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Buick Electra</td>
+<td>7827</td>
+<td>15</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>20</td>
+<td>4080</td>
+<td>222</td>
+<td>43</td>
+<td>350</td>
+<td>2.41</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'mpg'</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="forward-stepwise-selection">
+<h3>Forward Stepwise Selection<a class="headerlink" href="#forward-stepwise-selection" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ForwardSelector</span></code> follows the standard stepwise regression algorithm: begin with a null model, iteratively test each variable and select the one that gives the most statistically significant improvement of the fit, and repeat. This greedy algorithm continues until the fit no longer improves.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ForwardSelector</span></code> is instantiated with two parameters: <code class="docutils literal notranslate"><span class="pre">normalize</span></code> and <code class="docutils literal notranslate"><span class="pre">metric</span></code>. <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, assuming that this class is part of a larger pipeline; <code class="docutils literal notranslate"><span class="pre">metric</span></code> defaults to AIC.</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>normalize</p></td>
+<td><p>bool</p></td>
+<td><p>Whether to normalize features; default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>metric</p></td>
+<td><p>str</p></td>
+<td><p>Optimization metric to use; must be one of <code class="docutils literal notranslate"><span class="pre">aic</span></code> or <code class="docutils literal notranslate"><span class="pre">bic</span></code>; default <code class="docutils literal notranslate"><span class="pre">aic</span></code></p></td>
+</tr>
+</tbody>
+</table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ForwardSelector</span></code> class follows the Scikit-Learn API.  After fitting the selector using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method, the selected features can be accessed using the boolean mask under the <code class="docutils literal notranslate"><span class="pre">.best_support_</span></code> attribute.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">selector</span> <span class="o">=</span> <span class="n">ForwardSelector</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">'aic'</span><span class="p">)</span>
+<span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ForwardSelector(normalize=True)
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selector</span><span class="o">.</span><span class="n">best_support_</span><span class="p">]</span>
+</pre></div>
+</div>
+<div>
+<div class="table-wrapper"><table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>rep78</th>
+<th>weight</th>
+<th>length</th>
+<th>gear_ratio</th>
+<th>foreign</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>3.0</td>
+<td>2930</td>
+<td>186</td>
+<td>3.58</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>3.0</td>
+<td>3350</td>
+<td>173</td>
+<td>2.53</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>0.0</td>
+<td>2640</td>
+<td>168</td>
+<td>3.08</td>
+<td>0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>3.0</td>
+<td>3250</td>
+<td>196</td>
+<td>2.93</td>
+<td>0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>4.0</td>
+<td>4080</td>
+<td>222</td>
+<td>2.41</td>
+<td>0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>69</th>
+<td>4.0</td>
+<td>2160</td>
+<td>172</td>
+<td>3.74</td>
+<td>1</td>
+</tr>
+<tr>
+<th>70</th>
+<td>5.0</td>
+<td>2040</td>
+<td>155</td>
+<td>3.78</td>
+<td>1</td>
+</tr>
+<tr>
+<th>71</th>
+<td>4.0</td>
+<td>1930</td>
+<td>155</td>
+<td>3.78</td>
+<td>1</td>
+</tr>
+<tr>
+<th>72</th>
+<td>4.0</td>
+<td>1990</td>
+<td>156</td>
+<td>3.78</td>
+<td>1</td>
+</tr>
+<tr>
+<th>73</th>
+<td>5.0</td>
+<td>3170</td>
+<td>193</td>
+<td>2.98</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>74 rows × 5 columns</p>
+</div>
+</section>
+<section id="best-subset-selection">
+<h3>Best Subset Selection<a class="headerlink" href="#best-subset-selection" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> follows a very simple algorithm: compare all possible models with <span class="math">k</span> predictors, and select the model that minimizes our selection criteria. This algorithm is only appropriate for <span class="math">k&lt;=12</span> features, as it becomes computationally expensive: there are <span class="math">\frac{k!}{(p-k)!}</span>possible models, where <span class="math">p</span> is the total number of paramters and <span class="math">k</span> is the number of features included in the model.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> is instantiated with two parameters: <code class="docutils literal notranslate"><span class="pre">normalize</span></code> and <code class="docutils literal notranslate"><span class="pre">metric</span></code>. <code class="docutils literal notranslate"><span class="pre">Normalize</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, assuming that this class is part of a larger pipeline; <code class="docutils literal notranslate"><span class="pre">metric</span></code> defaults to AIC.</p>
+<div class="table-wrapper"><table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>normalize</p></td>
+<td><p>bool</p></td>
+<td><p>Whether to normalize features; default <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>metric</p></td>
+<td><p>str</p></td>
+<td><p>Optimization metric to use; must be one of <code class="docutils literal notranslate"><span class="pre">aic</span></code> or <code class="docutils literal notranslate"><span class="pre">bic</span></code>; default <code class="docutils literal notranslate"><span class="pre">aic</span></code></p></td>
+</tr>
+</tbody>
+</table></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> class follows the Scikit-Learn API.  After fitting the selector using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method, the selected features can be accessed using the boolean mask under the <code class="docutils literal notranslate"><span class="pre">.best_support_</span></code> attribute.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">selector</span> <span class="o">=</span> <span class="n">SubsetSelector</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">'aic'</span><span class="p">)</span>
+<span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SubsetSelector(normalize=True)
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()]</span>
+</pre></div>
+</div>
+<div>
+<div class="table-wrapper"><table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>rep78</th>
+<th>weight</th>
+<th>length</th>
+<th>gear_ratio</th>
+<th>foreign</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>3.0</td>
+<td>2930</td>
+<td>186</td>
+<td>3.58</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>3.0</td>
+<td>3350</td>
+<td>173</td>
+<td>2.53</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>0.0</td>
+<td>2640</td>
+<td>168</td>
+<td>3.08</td>
+<td>0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>3.0</td>
+<td>3250</td>
+<td>196</td>
+<td>2.93</td>
+<td>0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>4.0</td>
+<td>4080</td>
+<td>222</td>
+<td>2.41</td>
+<td>0</td>
+</tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>69</th>
+<td>4.0</td>
+<td>2160</td>
+<td>172</td>
+<td>3.74</td>
+<td>1</td>
+</tr>
+<tr>
+<th>70</th>
+<td>5.0</td>
+<td>2040</td>
+<td>155</td>
+<td>3.78</td>
+<td>1</td>
+</tr>
+<tr>
+<th>71</th>
+<td>4.0</td>
+<td>1930</td>
+<td>155</td>
+<td>3.78</td>
+<td>1</td>
+</tr>
+<tr>
+<th>72</th>
+<td>4.0</td>
+<td>1990</td>
+<td>156</td>
+<td>3.78</td>
+<td>1</td>
+</tr>
+<tr>
+<th>73</th>
+<td>5.0</td>
+<td>3170</td>
+<td>193</td>
+<td>2.98</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>74 rows × 5 columns</p>
+</div>
+</section>
+<section id="comparing-the-full-model">
+<h3>Comparing the full model<a class="headerlink" href="#comparing-the-full-model" title="Permalink to this headline">¶</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> selected features yields a model with 4 fewer parameters and slightly improved AIC and BIC metrics. The summaries indicate possible multicollinearity in both models, likely caused by <code class="docutils literal notranslate"><span class="pre">weight</span></code>, <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">displacement</span></code> and other features that are all related to the weight of a vehicle.</p>
+<p><em>Note: Selection using BIC as the optimization metric yields a model where <code class="docutils literal notranslate"><span class="pre">weight</span></code> is the only selected feature. Bayesian information criteria penalizes additional parameters more then AIC.</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">mod</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="table-wrapper"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+<th>Dep. Variable:</th> <td>mpg</td> <th>  R-squared:         </th> <td>   0.720</td>
+</tr>
+<tr>
+<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>   0.681</td>
+</tr>
+<tr>
+<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>   18.33</td>
+</tr>
+<tr>
+<th>Date:</th> <td>Sat, 07 Aug 2021</td> <th>  Prob (F-statistic):</th> <td>1.29e-14</td>
+</tr>
+<tr>
+<th>Time:</th> <td>15:37:36</td> <th>  Log-Likelihood:    </th> <td> -187.23</td>
+</tr>
+<tr>
+<th>No. Observations:</th> <td>    74</td> <th>  AIC:               </th> <td>   394.5</td>
+</tr>
+<tr>
+<th>Df Residuals:</th> <td>    64</td> <th>  BIC:               </th> <td>   417.5</td>
+</tr>
+<tr>
+<th>Df Model:</th> <td>     9</td> <th> </th> <td> </td>
+</tr>
+<tr>
+<th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
+</tr>
+</table></div>
+<div class="table-wrapper"><table class="simpletable">
+<tr>
+<td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
+</tr>
+<tr>
+<th>const</th> <td>   39.0871</td> <td>    9.100</td> <td>    4.295</td> <td> 0.000</td> <td>   20.907</td> <td>   57.267</td>
+</tr>
+<tr>
+<th>rep78</th> <td>    1.0021</td> <td>    0.357</td> <td>    2.809</td> <td> 0.007</td> <td>    0.290</td> <td>    1.715</td>
+</tr>
+<tr>
+<th>headroom</th> <td>   -0.0167</td> <td>    0.611</td> <td>   -0.027</td> <td> 0.978</td> <td>   -1.237</td> <td>    1.204</td>
+</tr>
+<tr>
+<th>trunk</th> <td>   -0.0772</td> <td>    0.154</td> <td>   -0.503</td> <td> 0.617</td> <td>   -0.384</td> <td>    0.230</td>
+</tr>
+<tr>
+<th>weight</th> <td>   -0.0037</td> <td>    0.002</td> <td>   -1.928</td> <td> 0.058</td> <td>   -0.008</td> <td>    0.000</td>
+</tr>
+<tr>
+<th>length</th> <td>   -0.0752</td> <td>    0.061</td> <td>   -1.229</td> <td> 0.223</td> <td>   -0.197</td> <td>    0.047</td>
+</tr>
+<tr>
+<th>turn</th> <td>   -0.1762</td> <td>    0.187</td> <td>   -0.941</td> <td> 0.350</td> <td>   -0.550</td> <td>    0.198</td>
+</tr>
+<tr>
+<th>displacement</th> <td>    0.0131</td> <td>    0.011</td> <td>    1.180</td> <td> 0.243</td> <td>   -0.009</td> <td>    0.035</td>
+</tr>
+<tr>
+<th>gear_ratio</th> <td>    3.7067</td> <td>    1.751</td> <td>    2.116</td> <td> 0.038</td> <td>    0.208</td> <td>    7.206</td>
+</tr>
+<tr>
+<th>foreign</th> <td>   -4.4633</td> <td>    1.385</td> <td>   -3.222</td> <td> 0.002</td> <td>   -7.230</td> <td>   -1.696</td>
+</tr>
+</table></div>
+<div class="table-wrapper"><table class="simpletable">
+<tr>
+<th>Omnibus:</th> <td>28.364</td> <th>  Durbin-Watson:     </th> <td>   2.523</td>
+</tr>
+<tr>
+<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>  52.945</td>
+</tr>
+<tr>
+<th>Skew:</th> <td> 1.389</td> <th>  Prob(JB):          </th> <td>3.18e-12</td>
+</tr>
+<tr>
+<th>Kurtosis:</th> <td> 6.074</td> <th>  Cond. No.          </th> <td>7.55e+04</td>
+</tr>
+</table></div><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 7.55e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">selector</span><span class="o">.</span><span class="n">best_support_</span><span class="p">]))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">mod</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="table-wrapper"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+<th>Dep. Variable:</th> <td>mpg</td> <th>  R-squared:         </th> <td>   0.710</td>
+</tr>
+<tr>
+<th>Model:</th> <td>OLS</td> <th>  Adj. R-squared:    </th> <td>   0.688</td>
+</tr>
+<tr>
+<th>Method:</th> <td>Least Squares</td> <th>  F-statistic:       </th> <td>   33.25</td>
+</tr>
+<tr>
+<th>Date:</th> <td>Sat, 07 Aug 2021</td> <th>  Prob (F-statistic):</th> <td>5.22e-17</td>
+</tr>
+<tr>
+<th>Time:</th> <td>15:37:40</td> <th>  Log-Likelihood:    </th> <td> -188.63</td>
+</tr>
+<tr>
+<th>No. Observations:</th> <td>    74</td> <th>  AIC:               </th> <td>   389.3</td>
+</tr>
+<tr>
+<th>Df Residuals:</th> <td>    68</td> <th>  BIC:               </th> <td>   403.1</td>
+</tr>
+<tr>
+<th>Df Model:</th> <td>     5</td> <th> </th> <td> </td>
+</tr>
+<tr>
+<th>Covariance Type:</th> <td>nonrobust</td> <th> </th> <td> </td>
+</tr>
+</table></div>
+<div class="table-wrapper"><table class="simpletable">
+<tr>
+<td></td> <th>coef</th> <th>std err</th> <th>t</th> <th>P&gt;|t|</th> <th>[0.025</th> <th>0.975]</th>
+</tr>
+<tr>
+<th>const</th> <td>   40.3703</td> <td>    7.860</td> <td>    5.136</td> <td> 0.000</td> <td>   24.687</td> <td>   56.054</td>
+</tr>
+<tr>
+<th>rep78</th> <td>    0.9040</td> <td>    0.342</td> <td>    2.647</td> <td> 0.010</td> <td>    0.223</td> <td>    1.586</td>
+</tr>
+<tr>
+<th>weight</th> <td>   -0.0030</td> <td>    0.002</td> <td>   -1.770</td> <td> 0.081</td> <td>   -0.006</td> <td>    0.000</td>
+</tr>
+<tr>
+<th>length</th> <td>   -0.1058</td> <td>    0.053</td> <td>   -1.990</td> <td> 0.051</td> <td>   -0.212</td> <td>    0.000</td>
+</tr>
+<tr>
+<th>gear_ratio</th> <td>    2.6905</td> <td>    1.511</td> <td>    1.780</td> <td> 0.079</td> <td>   -0.325</td> <td>    5.706</td>
+</tr>
+<tr>
+<th>foreign</th> <td>   -4.0123</td> <td>    1.320</td> <td>   -3.040</td> <td> 0.003</td> <td>   -6.646</td> <td>   -1.379</td>
+</tr>
+</table></div>
+<div class="table-wrapper"><table class="simpletable">
+<tr>
+<th>Omnibus:</th> <td>24.257</td> <th>  Durbin-Watson:     </th> <td>   2.442</td>
+</tr>
+<tr>
+<th>Prob(Omnibus):</th> <td> 0.000</td> <th>  Jarque-Bera (JB):  </th> <td>  39.774</td>
+</tr>
+<tr>
+<th>Skew:</th> <td> 1.252</td> <th>  Prob(JB):          </th> <td>2.31e-09</td>
+</tr>
+<tr>
+<th>Kurtosis:</th> <td> 5.576</td> <th>  Cond. No.          </th> <td>6.59e+04</td>
+</tr>
+</table></div><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 6.59e+04. This might indicate that there are<br/>strong multicollinearity or other numerical problems.
+</section>
+<section id="use-in-scikit-learn-pipeline">
+<h3>Use in Scikit-Learn Pipeline<a class="headerlink" href="#use-in-scikit-learn-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>Both <code class="docutils literal notranslate"><span class="pre">ForwardSelector</span></code> and <code class="docutils literal notranslate"><span class="pre">SubsetSelector</span></code> objects are compatible with Scikit-Learn <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> objects, and can be used as feature selection steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">'feature_selection'</span><span class="p">,</span> <span class="n">SubsetSelector</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">'regression'</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())</span>
+<span class="p">])</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[('feature_selection', SubsetSelector(normalize=True)),
+                ('regression', LinearRegression())])
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.7097132531085899
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
       </article>
       <footer>
-
+        
         <div class="related-pages">
           <a class="next-page" href="modules.html">
               <div class="page-info">
@@ -222,9 +797,9 @@
                 <div class="context">
                   <span>Previous</span>
                 </div>
-
+                
                 <div class="title">Home</div>
-
+                
               </div>
             </a>
         </div>
@@ -242,12 +817,12 @@
               Show Source
             </a>
         </div>
-
+        
       </footer>
     </div>
     <aside class="toc-drawer">
-
-
+      
+      
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
@@ -260,7 +835,14 @@
 <li><a class="reference internal" href="#">Quickstart</a></li>
 <li><a class="reference internal" href="#step-select">step-select</a><ul>
 <li><a class="reference internal" href="#install">Install</a></li>
-<li><a class="reference internal" href="#use">Use</a></li>
+<li><a class="reference internal" href="#use">Use</a><ul>
+<li><a class="reference internal" href="#preliminaries">Preliminaries</a></li>
+<li><a class="reference internal" href="#forward-stepwise-selection">Forward Stepwise Selection</a></li>
+<li><a class="reference internal" href="#best-subset-selection">Best Subset Selection</a></li>
+<li><a class="reference internal" href="#comparing-the-full-model">Comparing the full model</a></li>
+<li><a class="reference internal" href="#use-in-scikit-learn-pipeline">Use in Scikit-Learn Pipeline</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -268,10 +850,10 @@
           </div>
         </div>
       </div>
-
-
+      
+      
     </aside>
-  </div>
+  </main>
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
