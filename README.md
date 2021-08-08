@@ -6,10 +6,10 @@ A SciKit-Learn style feature selector using best subsets and stepwise regression
 
 ## Install
 
-Create a virtual environment with Python 3.8 and install from git:
+Create a virtual environment with Python 3.8 and install from PyPi:
 
 ```bash
-pip install git+https://github.com/chris-santiago/steps.git
+pip install step-select
 ```
 
 ## Use
