@@ -1,6 +1,7 @@
 import nox
 
 PROJECT = 'steps'
+VERSIONS = [f"3.{x}" for x in range(7, 12)]
 
 
 @nox.session(reuse_venv=True)
@@ -9,6 +10,14 @@ def tests(session):
     session.install('pytest', 'pytest-cov')
     session.install('.')
     session.run('pytest')
+
+
+# @nox.session(venv_backend="conda", python=VERSIONS, reuse_venv=True)
+# def test_multiple(session):
+#     """Run unit tests in multiple Python environments."""
+#     session.install('pytest', 'pytest-cov')
+#     session.install('.')
+#     session.run('pytest')
 
 
 @nox.session(python=False)
