@@ -1,4 +1,5 @@
 # step-select
+[![image](https://img.shields.io/badge/python-3.7--3.10-blue.svg)](https://www.python.org)
 ![build](https://travis-ci.com/chris-santiago/steps.svg?branch=master)
 [![codecov](https://codecov.io/gh/chris-santiago/steps/branch/master/graph/badge.svg?token=RIB2YFGWFX)](https://codecov.io/gh/chris-santiago/steps)
 
