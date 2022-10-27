@@ -1,6 +1,6 @@
 # step-select
 [![image](https://img.shields.io/badge/python-3.7--3.10-blue.svg)](https://www.python.org)
-![build](https://travis-ci.com/chris-santiago/steps.svg?branch=master)
+[![Build Status](https://app.travis-ci.com/chris-santiago/steps.svg?branch=master)](https://app.travis-ci.com/chris-santiago/steps)
 [![codecov](https://codecov.io/gh/chris-santiago/steps/branch/master/graph/badge.svg?token=RIB2YFGWFX)](https://codecov.io/gh/chris-santiago/steps)
 
 A SciKit-Learn style feature selector using best subsets and stepwise regression.
