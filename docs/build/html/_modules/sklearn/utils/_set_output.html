@@ -1,0 +1,677 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" />
+
+    <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>sklearn.utils._set_output - step-select</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">step-select</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  
+  <span class="sidebar-brand-text">step-select</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html#step-select">step-select</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../modules.html">steps</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of steps</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../steps.html">steps package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/chris-santiago/steps">Github Repo</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <h1>Source code for sklearn.utils._set_output</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">runtime_checkable</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">issparse</span>
+
+<span class="kn">from</span> <span class="nn">.._config</span> <span class="kn">import</span> <span class="n">get_config</span>
+<span class="kn">from</span> <span class="nn">._available_if</span> <span class="kn">import</span> <span class="n">available_if</span>
+
+
+<span class="k">def</span> <span class="nf">check_library_installed</span><span class="p">(</span><span class="n">library</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check library is installed.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">library</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Setting output container to &#39;</span><span class="si">{</span><span class="n">library</span><span class="si">}</span><span class="s2">&#39; requires </span><span class="si">{</span><span class="n">library</span><span class="si">}</span><span class="s2"> to be&quot;</span>
+            <span class="s2">&quot; installed&quot;</span>
+        <span class="p">)</span> <span class="kn">from</span> <span class="nn">exc</span>
+
+
+<span class="k">def</span> <span class="nf">get_columns</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">columns</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">columns</span>
+
+
+<span class="nd">@runtime_checkable</span>
+<span class="k">class</span> <span class="nc">ContainerAdapterProtocol</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+    <span class="n">container_lib</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="nf">create_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_output</span><span class="p">,</span> <span class="n">X_original</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create container from `X_output` with additional metadata.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X_output : {ndarray, dataframe}</span>
+<span class="sd">            Data to wrap.</span>
+
+<span class="sd">        X_original : {ndarray, dataframe}</span>
+<span class="sd">            Original input dataframe. This is used to extract the metadata that should</span>
+<span class="sd">            be passed to `X_output`, e.g. pandas row index.</span>
+
+<span class="sd">        columns : callable, ndarray, or None</span>
+<span class="sd">            The column names or a callable that returns the column names. The</span>
+<span class="sd">            callable is useful if the column names require some computation. If `None`,</span>
+<span class="sd">            then no columns are passed to the container&#39;s constructor.</span>
+
+<span class="sd">        inplace : bool, default=False</span>
+<span class="sd">            Whether or not we intend to modify `X_output` in-place. However, it does</span>
+<span class="sd">            not guarantee that we return the same object if the in-place operation</span>
+<span class="sd">            is not possible.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        wrapped_output : container_type</span>
+<span class="sd">            `X_output` wrapped into the container type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">is_supported_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return True if X is a supported container.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs: container</span>
+<span class="sd">            Containers to be checked.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_supported_container : bool</span>
+<span class="sd">            True if X is a supported container.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">rename_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rename columns in `X`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : container</span>
+<span class="sd">            Container which columns is updated.</span>
+
+<span class="sd">        columns : ndarray of str</span>
+<span class="sd">            Columns to update the `X`&#39;s columns with.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        updated_container : container</span>
+<span class="sd">            Container with new names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">hstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stack containers horizontally (column-wise).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Xs : list of containers</span>
+<span class="sd">            List of containers to stack.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        stacked_Xs : container</span>
+<span class="sd">            Stacked containers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">PandasAdapter</span><span class="p">:</span>
+    <span class="n">container_lib</span> <span class="o">=</span> <span class="s2">&quot;pandas&quot;</span>
+
+    <span class="k">def</span> <span class="nf">create_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_output</span><span class="p">,</span> <span class="n">X_original</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">pd</span> <span class="o">=</span> <span class="n">check_library_installed</span><span class="p">(</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">get_columns</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">inplace</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="c1"># In all these cases, we need to create a new DataFrame</span>
+
+            <span class="c1"># Unfortunately, we cannot use `getattr(container, &quot;index&quot;)`</span>
+            <span class="c1"># because `list` exposes an `index` attribute.</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">X_output</span><span class="o">.</span><span class="n">index</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_original</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">X_original</span><span class="o">.</span><span class="n">index</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># We don&#39;t pass columns here because it would intend columns selection</span>
+            <span class="c1"># instead of renaming.</span>
+            <span class="n">X_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="ow">not</span> <span class="n">inplace</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X_output</span>
+
+    <span class="k">def</span> <span class="nf">is_supported_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">pd</span> <span class="o">=</span> <span class="n">check_library_installed</span><span class="p">(</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">rename_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+        <span class="c1"># we cannot use `rename` since it takes a dictionary and at this stage we have</span>
+        <span class="c1"># potentially duplicate column names in `X`</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+        <span class="k">return</span> <span class="n">X</span>
+
+    <span class="k">def</span> <span class="nf">hstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="n">pd</span> <span class="o">=</span> <span class="n">check_library_installed</span><span class="p">(</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">PolarsAdapter</span><span class="p">:</span>
+    <span class="n">container_lib</span> <span class="o">=</span> <span class="s2">&quot;polars&quot;</span>
+
+    <span class="k">def</span> <span class="nf">create_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_output</span><span class="p">,</span> <span class="n">X_original</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">pl</span> <span class="o">=</span> <span class="n">check_library_installed</span><span class="p">(</span><span class="s2">&quot;polars&quot;</span><span class="p">)</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">get_columns</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">columns</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">inplace</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="c1"># In all these cases, we need to create a new DataFrame</span>
+            <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;row&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">(</span><span class="n">X_output</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X_output</span>
+
+    <span class="k">def</span> <span class="nf">is_supported_container</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">pl</span> <span class="o">=</span> <span class="n">check_library_installed</span><span class="p">(</span><span class="s2">&quot;polars&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">rename_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+        <span class="c1"># we cannot use `rename` since it takes a dictionary and at this stage we have</span>
+        <span class="c1"># potentially duplicate column names in `X`</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+        <span class="k">return</span> <span class="n">X</span>
+
+    <span class="k">def</span> <span class="nf">hstack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Xs</span><span class="p">):</span>
+        <span class="n">pl</span> <span class="o">=</span> <span class="n">check_library_installed</span><span class="p">(</span><span class="s2">&quot;polars&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ContainerAdaptersManager</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adapters</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">supported_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">}</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adapters</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adapter</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adapters</span><span class="p">[</span><span class="n">adapter</span><span class="o">.</span><span class="n">container_lib</span><span class="p">]</span> <span class="o">=</span> <span class="n">adapter</span>
+
+
+<span class="n">ADAPTERS_MANAGER</span> <span class="o">=</span> <span class="n">ContainerAdaptersManager</span><span class="p">()</span>
+<span class="n">ADAPTERS_MANAGER</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">PandasAdapter</span><span class="p">())</span>
+<span class="n">ADAPTERS_MANAGER</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">PolarsAdapter</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">_get_container_adapter</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get container adapter.&quot;&quot;&quot;</span>
+    <span class="n">dense_config</span> <span class="o">=</span> <span class="n">_get_output_config</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">estimator</span><span class="p">)[</span><span class="s2">&quot;dense&quot;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ADAPTERS_MANAGER</span><span class="o">.</span><span class="n">adapters</span><span class="p">[</span><span class="n">dense_config</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">_get_output_config</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get output config based on estimator and global configuration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    method : {&quot;transform&quot;}</span>
+<span class="sd">        Estimator&#39;s method for which the output container is looked up.</span>
+
+<span class="sd">    estimator : estimator instance or None</span>
+<span class="sd">        Estimator to get the output configuration from. If `None`, check global</span>
+<span class="sd">        configuration is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Dictionary with keys:</span>
+
+<span class="sd">        - &quot;dense&quot;: specifies the dense container for `method`. This can be</span>
+<span class="sd">          `&quot;default&quot;` or `&quot;pandas&quot;`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">est_sklearn_output_config</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s2">&quot;_sklearn_output_config&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">est_sklearn_output_config</span><span class="p">:</span>
+        <span class="n">dense_config</span> <span class="o">=</span> <span class="n">est_sklearn_output_config</span><span class="p">[</span><span class="n">method</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dense_config</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">_output&quot;</span><span class="p">]</span>
+
+    <span class="n">supported_outputs</span> <span class="o">=</span> <span class="n">ADAPTERS_MANAGER</span><span class="o">.</span><span class="n">supported_outputs</span>
+    <span class="k">if</span> <span class="n">dense_config</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">supported_outputs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;output config must be in </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">supported_outputs</span><span class="p">)</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">dense_config</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;dense&quot;</span><span class="p">:</span> <span class="n">dense_config</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">,</span> <span class="n">original_input</span><span class="p">,</span> <span class="n">estimator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrap output with container based on an estimator&#39;s or global config.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    method : {&quot;transform&quot;}</span>
+<span class="sd">        Estimator&#39;s method to get container output for.</span>
+
+<span class="sd">    data_to_wrap : {ndarray, dataframe}</span>
+<span class="sd">        Data to wrap with container.</span>
+
+<span class="sd">    original_input : {ndarray, dataframe}</span>
+<span class="sd">        Original input of function.</span>
+
+<span class="sd">    estimator : estimator instance</span>
+<span class="sd">        Estimator with to get the output configuration from.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : {ndarray, dataframe}</span>
+<span class="sd">        If the output config is &quot;default&quot; or the estimator is not configured</span>
+<span class="sd">        for wrapping return `data_to_wrap` unchanged.</span>
+<span class="sd">        If the output config is &quot;pandas&quot;, return `data_to_wrap` as a pandas</span>
+<span class="sd">        DataFrame.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output_config</span> <span class="o">=</span> <span class="n">_get_output_config</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">estimator</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">output_config</span><span class="p">[</span><span class="s2">&quot;dense&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;default&quot;</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">_auto_wrap_is_configured</span><span class="p">(</span><span class="n">estimator</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">data_to_wrap</span>
+
+    <span class="n">dense_config</span> <span class="o">=</span> <span class="n">output_config</span><span class="p">[</span><span class="s2">&quot;dense&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">issparse</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The transformer outputs a scipy sparse matrix. &quot;</span>
+            <span class="s2">&quot;Try to set the transformer output to a dense array or disable &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dense_config</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2"> output with set_output(transform=&#39;default&#39;).&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">ADAPTERS_MANAGER</span><span class="o">.</span><span class="n">adapters</span><span class="p">[</span><span class="n">dense_config</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">adapter</span><span class="o">.</span><span class="n">create_container</span><span class="p">(</span>
+        <span class="n">data_to_wrap</span><span class="p">,</span>
+        <span class="n">original_input</span><span class="p">,</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">estimator</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_wrap_method_output</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrapper used by `_SetOutputMixin` to automatically wrap methods.&quot;&quot;&quot;</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">data_to_wrap</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="c1"># only wrap the first output for cross decomposition</span>
+            <span class="n">return_tuple</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
+                <span class="o">*</span><span class="n">data_to_wrap</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+            <span class="p">)</span>
+            <span class="c1"># Support for namedtuples `_make` is a documented API for namedtuples:</span>
+            <span class="c1"># https://docs.python.org/3/library/collections.html#collections.somenamedtuple._make</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">),</span> <span class="s2">&quot;_make&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">)</span><span class="o">.</span><span class="n">_make</span><span class="p">(</span><span class="n">return_tuple</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">return_tuple</span>
+
+        <span class="k">return</span> <span class="n">_wrap_data_with_container</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">data_to_wrap</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span>
+
+
+<span class="k">def</span> <span class="nf">_auto_wrap_is_configured</span><span class="p">(</span><span class="n">estimator</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if estimator is configured for auto-wrapping the transform method.</span>
+
+<span class="sd">    `_SetOutputMixin` sets `_sklearn_auto_wrap_output_keys` to `set()` if auto wrapping</span>
+<span class="sd">    is manually disabled.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">auto_wrap_output_keys</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s2">&quot;_sklearn_auto_wrap_output_keys&quot;</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="nb">hasattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s2">&quot;get_feature_names_out&quot;</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="s2">&quot;transform&quot;</span> <span class="ow">in</span> <span class="n">auto_wrap_output_keys</span>
+    <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_SetOutputMixin</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mixin that dynamically wraps methods to return container based on config.</span>
+
+<span class="sd">    Currently `_SetOutputMixin` wraps `transform` and `fit_transform` and configures</span>
+<span class="sd">    it based on `set_output` of the global configuration.</span>
+
+<span class="sd">    `set_output` is only defined if `get_feature_names_out` is defined and</span>
+<span class="sd">    `auto_wrap_output_keys` is the default value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">auto_wrap_output_keys</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;transform&quot;</span><span class="p">,),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Dynamically wraps `transform` and `fit_transform` and configure it&#39;s</span>
+        <span class="c1"># output based on `set_output`.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">auto_wrap_output_keys</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="n">auto_wrap_output_keys</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;auto_wrap_output_keys must be None or a tuple of keys.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">auto_wrap_output_keys</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_sklearn_auto_wrap_output_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Mapping from method to key in configurations</span>
+        <span class="n">method_to_key</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;transform&quot;</span><span class="p">:</span> <span class="s2">&quot;transform&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fit_transform&quot;</span><span class="p">:</span> <span class="s2">&quot;transform&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">_sklearn_auto_wrap_output_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">method_to_key</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span> <span class="ow">or</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">auto_wrap_output_keys</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_sklearn_auto_wrap_output_keys</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+            <span class="c1"># Only wrap methods defined by cls itself</span>
+            <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">wrapped_method</span> <span class="o">=</span> <span class="n">_wrap_method_output</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="p">),</span> <span class="n">key</span><span class="p">)</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">wrapped_method</span><span class="p">)</span>
+
+    <span class="nd">@available_if</span><span class="p">(</span><span class="n">_auto_wrap_is_configured</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set output container.</span>
+
+<span class="sd">        See :ref:`sphx_glr_auto_examples_miscellaneous_plot_set_output.py`</span>
+<span class="sd">        for an example on how to use the API.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        transform : {&quot;default&quot;, &quot;pandas&quot;}, default=None</span>
+<span class="sd">            Configure output of `transform` and `fit_transform`.</span>
+
+<span class="sd">            - `&quot;default&quot;`: Default output format of a transformer</span>
+<span class="sd">            - `&quot;pandas&quot;`: DataFrame output</span>
+<span class="sd">            - `&quot;polars&quot;`: Polars output</span>
+<span class="sd">            - `None`: Transform configuration is unchanged</span>
+
+<span class="sd">            .. versionadded:: 1.4</span>
+<span class="sd">                `&quot;polars&quot;` option was added.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : estimator instance</span>
+<span class="sd">            Estimator instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">transform</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_sklearn_output_config&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sklearn_output_config</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sklearn_output_config</span><span class="p">[</span><span class="s2">&quot;transform&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transform</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+
+<span class="k">def</span> <span class="nf">_safe_set_output</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely call estimator.set_output and error if it not available.</span>
+
+<span class="sd">    This is used by meta-estimators to set the output for child estimators.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimator : estimator instance</span>
+<span class="sd">        Estimator instance.</span>
+
+<span class="sd">    transform : {&quot;default&quot;, &quot;pandas&quot;}, default=None</span>
+<span class="sd">        Configure output of the following estimator&#39;s methods:</span>
+
+<span class="sd">        - `&quot;transform&quot;`</span>
+<span class="sd">        - `&quot;fit_transform&quot;`</span>
+
+<span class="sd">        If `None`, this operation is a no-op.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    estimator : estimator instance</span>
+<span class="sd">        Estimator instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">set_output_for_transform</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">hasattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s2">&quot;transform&quot;</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s2">&quot;fit_transform&quot;</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">transform</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">set_output_for_transform</span><span class="p">:</span>
+        <span class="c1"># If estimator can not transform, then `set_output` does not need to be</span>
+        <span class="c1"># called.</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="s2">&quot;set_output&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Unable to configure output for </span><span class="si">{</span><span class="n">estimator</span><span class="si">}</span><span class="s2"> because `set_output` &quot;</span>
+            <span class="s2">&quot;is not available.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">estimator</span><span class="o">.</span><span class="n">set_output</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2021, Chris Santiago
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

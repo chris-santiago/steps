@@ -6,16 +6,15 @@ from typing import Optional
 import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.feature_selection import SelectorMixin
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.utils import check_X_y
 from sklearn.utils.validation import check_is_fitted
 
 from steps.metrics import get_aic, get_bic
+from steps.mixin import StepsMixin
 
 
-class SubsetSelector(BaseEstimator, SelectorMixin):
+class SubsetSelector(BaseEstimator, SelectorMixin, StepsMixin):
     """Class for best subsets feature selection."""
     def __init__(self, normalize: bool = False, metric: str = 'aic', max_p: Optional[int] = None):
         """
@@ -61,12 +60,14 @@ class SubsetSelector(BaseEstimator, SelectorMixin):
         if self.max_p:
             support = [s for s in support if sum(s) <= self.max_p]
         n_params = [sum(x) for x in support]
+        estimator = self.get_estimator(y)
+        loss_func = self.get_loss_func(y)
         results = [
-            LinearRegression().fit(X[:, mask], y).predict(X[:, mask])
+            estimator().fit(X[:, mask], y).predict(X[:, mask])
             for mask in support if any(mask)
         ]
         scores = [
-            score_funcs[self.metric](mean_squared_error(y, res), len(X), p)
+            score_funcs[self.metric](loss_func(y, res), len(X), p)
             for res, p in zip(results, n_params)
         ]
         self.best_score_ = min(scores)

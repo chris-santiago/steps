@@ -3,14 +3,14 @@
 from numpy import log
 
 
-def get_bic(mse: float, n: int, p: int):
+def get_bic(loss: float, n: int, p: int):
     """
     Calcuate BIC score.
 
     Parameters
     ----------
-    mse: float
-        Mean-squared error.
+    loss: float
+        Model loss (MSE or Log-Loss).
     n: int
         Number of observations.
     p: int
@@ -21,17 +21,17 @@ def get_bic(mse: float, n: int, p: int):
     float
         BIC value.
     """
-    return n * log(mse) + log(n) * p
+    return n * log(loss) + log(n) * p
 
 
-def get_aic(mse: float, n: int, p: int):
+def get_aic(loss: float, n: int, p: int):
     """
     Calcuate AIC score.
 
     Parameters
     ----------
-    mse: float
-        Mean-squared error.
+    loss: float
+        Model loss (MSE or Log-Loss).
     n: int
         Number of observations.
     p: int
@@ -42,4 +42,4 @@ def get_aic(mse: float, n: int, p: int):
     float
         AIC value.
     """
-    return n * log(mse) + 2 * p
+    return n * log(loss) + 2 * p

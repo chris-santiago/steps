@@ -5,15 +5,15 @@ import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.feature_selection import SelectorMixin
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import StandardScaler
 from sklearn.utils import check_X_y
 from sklearn.utils.validation import check_is_fitted
 
 from steps.metrics import get_aic, get_bic
+from steps.mixin import StepsMixin
 
 
-class ForwardSelector(BaseEstimator, SelectorMixin):
+class ForwardSelector(BaseEstimator, SelectorMixin, StepsMixin):
     """Class for forward stepwise feature selection."""
     def __init__(self, normalize: bool = False, metric: str = 'aic'):
         """
@@ -55,8 +55,11 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
             X = self.scaler.fit_transform(X)
         score_func = {'aic': get_aic, 'bic': get_bic}
 
-        best_mse = mean_squared_error(y, self._get_null_fit(X, y))
-        best_metric = score_func[self.metric](mse=best_mse, n=len(X), p=0)
+        estimator = self.get_estimator(y)
+        loss_func = self.get_loss_func(y)
+
+        best_loss = loss_func(y, self._get_null_fit(X, y))
+        best_metric = score_func[self.metric](best_loss, n=len(X), p=0)
         test_metric = 0
         keep_idx: List = []
         params = {i: X[:, i, None] for i in range(X.shape[1])}
@@ -67,16 +70,16 @@ class ForwardSelector(BaseEstimator, SelectorMixin):
             # params = [i for i in range(X.shape[1]) if i not in keep_idx]
             if len(keep_idx) == 0:
                 results = {
-                    i: LinearRegression().fit(x, y).predict(x)
+                    i: estimator().fit(x, y).predict(x)
                     for i, x in params.items() if i not in keep_idx
                 }
             else:
                 results = {
-                    i: LinearRegression().fit(X[:, keep_idx+[i]], y).predict(X[:, keep_idx+[i]])
+                    i: estimator().fit(X[:, keep_idx+[i]], y).predict(X[:, keep_idx+[i]])
                     for i in params if i not in keep_idx
                 }
             scores = {
-                i: score_func[self.metric](mean_squared_error(y, res), len(X), len(keep_idx) + 1)
+                i: score_func[self.metric](loss_func(y, res), len(X), len(keep_idx) + 1)
                 for i, res in results.items()
             }
             test_metric = min(scores.values())
