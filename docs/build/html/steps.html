@@ -208,7 +208,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="steps.forward.ForwardSelector">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">steps.forward.</span></span><span class="sig-name descname"><span class="pre">ForwardSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'aic'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/forward.html#ForwardSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.forward.ForwardSelector" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">StepsMixin</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorMixin</span></code>, <a class="reference internal" href="#steps.mixin.StepsMixin" title="steps.mixin.StepsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">StepsMixin</span></code></a></p>
 <p>Class for forward stepwise feature selection.</p>
 <p>Constructor method.</p>
 <dl class="field-list simple">
@@ -484,13 +484,54 @@ possible to update each component of a nested object.</p>
 </dd></dl>
 
 </section>
+<section id="module-steps.mixin">
+<span id="steps-mixin-module"></span><h2>steps.mixin module<a class="headerlink" href="#module-steps.mixin" title="Link to this heading">#</a></h2>
+<p>Step selection mixin module.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="steps.mixin.StepsMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">steps.mixin.</span></span><span class="sig-name descname"><span class="pre">StepsMixin</span></span><a class="reference internal" href="_modules/steps/mixin.html#StepsMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.mixin.StepsMixin" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Step selection mixin that returns regressor/classifier estimator and score func.</p>
+<p>This mixin provides an estimator based on target dtype using the <cite>get_estimator</cite> method
+and a score func based on target dtype using the <cite>get_loss_func</cite> func.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="steps.mixin.StepsMixin.get_estimator">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_estimator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/steps/mixin.html#StepsMixin.get_estimator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.mixin.StepsMixin.get_estimator" title="Link to this definition">#</a></dt>
+<dd><p>Get an estimator for subset/stepwise feature selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>array-like of shape (n_samples,) or (n_samples, n_outputs), default=None</em>) – Target values (None for unsupervised transformations).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Type[LinearRegression, LogisticRegression]</em> – A Scikit-learn estimator.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="steps.mixin.StepsMixin.get_loss_func">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_loss_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">mean_squared_error</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">log_loss</span></span></span><a class="reference internal" href="_modules/steps/mixin.html#StepsMixin.get_loss_func"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.mixin.StepsMixin.get_loss_func" title="Link to this definition">#</a></dt>
+<dd><p>Get a loss function for subset/stepwise feature selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>array-like of shape (n_samples,) or (n_samples, n_outputs), default=None</em>) – Target values (None for unsupervised transformations).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Union[mean_squared_error, log_loss]</em> – A Scikit-learn loss function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-steps.subset">
 <span id="steps-subset-module"></span><h2>steps.subset module<a class="headerlink" href="#module-steps.subset" title="Link to this heading">#</a></h2>
 <p>Best subsets selection module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="steps.subset.SubsetSelector">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">steps.subset.</span></span><span class="sig-name descname"><span class="pre">SubsetSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'aic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/steps/subset.html#SubsetSelector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#steps.subset.SubsetSelector" title="Link to this definition">#</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">StepsMixin</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseEstimator</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">SelectorMixin</span></code>, <a class="reference internal" href="#steps.mixin.StepsMixin" title="steps.mixin.StepsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">StepsMixin</span></code></a></p>
 <p>Class for best subsets feature selection.</p>
 <p>Constructor method.</p>
 <dl class="field-list simple">
@@ -804,6 +845,14 @@ possible to update each component of a nested object.</p>
 <li><a class="reference internal" href="#module-steps.metrics">steps.metrics module</a><ul>
 <li><a class="reference internal" href="#steps.metrics.get_bic"><code class="docutils literal notranslate"><span class="pre">get_bic()</span></code></a></li>
 <li><a class="reference internal" href="#steps.metrics.get_aic"><code class="docutils literal notranslate"><span class="pre">get_aic()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-steps.mixin">steps.mixin module</a><ul>
+<li><a class="reference internal" href="#steps.mixin.StepsMixin"><code class="docutils literal notranslate"><span class="pre">StepsMixin</span></code></a><ul>
+<li><a class="reference internal" href="#steps.mixin.StepsMixin.get_estimator"><code class="docutils literal notranslate"><span class="pre">StepsMixin.get_estimator()</span></code></a></li>
+<li><a class="reference internal" href="#steps.mixin.StepsMixin.get_loss_func"><code class="docutils literal notranslate"><span class="pre">StepsMixin.get_loss_func()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-steps.subset">steps.subset module</a><ul>
