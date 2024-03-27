@@ -1,3 +1,4 @@
+"""Step selection mixin module."""
 from abc import ABCMeta
 from typing import Any, Union
 

@@ -20,6 +20,15 @@ steps.metrics module
    :undoc-members:
    :show-inheritance:
 
+steps.mixin module
+--------------------
+
+.. automodule:: steps.mixin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
 steps.subset module
 -------------------
 
