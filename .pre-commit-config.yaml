@@ -3,7 +3,7 @@
 repos:
 # -------------------- Base --------------------
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.5.0
     hooks:
     -   id: trailing-whitespace
         files: .py$
@@ -15,17 +15,17 @@ repos:
     -   id: check-added-large-files
 # -------------------- iSort --------------------
 -   repo: https://github.com/PyCQA/isort
-    rev: 5.9.2
+    rev: 5.13.2
     hooks:
     -   id: isort
 # -------------------- Flake8 --------------------
 -   repo: https://github.com/PyCQA/flake8
-    rev: 3.8.3
+    rev: 7.0.0
     hooks:
     -   id: flake8
         args: ['--count', '--statistics', '--exit-zero', ' --show-source']
 # -------------------- Manifest --------------------
 -   repo: https://github.com/mgedmin/check-manifest
-    rev: '0.46'
+    rev: '0.49'
     hooks:
     -   id: check-manifest
